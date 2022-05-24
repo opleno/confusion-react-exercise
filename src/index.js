@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// opleno IMPORTANT: downloaded React 18, then downgraded to 17 using 'https://stackoverflow.com/questions/46566830/how-to-use-create-react-app-with-an-older-react-version'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
