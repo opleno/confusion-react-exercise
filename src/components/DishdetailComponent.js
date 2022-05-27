@@ -15,8 +15,8 @@ class DishDetail extends Component {
                 <Card key={dish.id} >
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
-                        <CardTitle className="m-3">{dish.name}</CardTitle>
-                        <CardText className="m-3">{dish.description}</CardText>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText className="small-medium-text">{dish.description}</CardText>
                     </CardBody>
                 </Card>
             );
@@ -27,11 +27,18 @@ class DishDetail extends Component {
     }
 
     renderComments (comments) {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+
         const commentList = comments.map((comment) => {
+            let datetime = new Date(Date.parse(comment.date));
+            // TODO check why it shows one day off. I am in GMT-4, maybe this could be a reason
+            let date = `${monthNames[datetime.getUTCMonth()]} ${datetime.getUTCDate()}, ${datetime.getUTCFullYear()}`;
             return (
                 <li>
                     <CardText className='small-text' key={comment.id}>{comment.comment}</CardText>
-                    <CardText className='small-medium-text' key={comment.id}>-- {comment.author} , {comment.date}</CardText>
+                    <CardText className='small-medium-text' key={comment.id}>-- {comment.author} , {date}</CardText>
                     <p></p>
                 </li>
             );
