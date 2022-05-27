@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import './DishdetailComponent.css'
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
@@ -16,7 +15,7 @@ class DishDetail extends Component {
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
-                        <CardText className="small-medium-text">{dish.description}</CardText>
+                        <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
             );
@@ -37,8 +36,8 @@ class DishDetail extends Component {
             let date = `${monthNames[datetime.getUTCMonth()]} ${datetime.getUTCDate()}, ${datetime.getUTCFullYear()}`;
             return (
                 <li>
-                    <CardText className='small-text' key={comment.id}>{comment.comment}</CardText>
-                    <CardText className='small-medium-text' key={comment.id}>-- {comment.author} , {date}</CardText>
+                    <CardText key={comment.id}>{comment.comment}</CardText>
+                    <CardText key={comment.id}>-- {comment.author} , {date}</CardText>
                     <p></p>
                 </li>
             );
