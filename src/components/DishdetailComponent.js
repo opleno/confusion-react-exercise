@@ -34,10 +34,11 @@ class DishDetail extends Component {
             let datetime = new Date(Date.parse(comment.date));
             // TODO check why it shows one day off. I am in GMT-4, maybe this could be a reason
             let date = `${monthNames[datetime.getUTCMonth()]} ${datetime.getUTCDate()}, ${datetime.getUTCFullYear()}`;
+            // {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
             return (
-                <li>
-                    <CardText key={comment.id}>{comment.comment}</CardText>
-                    <CardText key={comment.id}>-- {comment.author} , {date}</CardText>
+                <li key={comment.id}>
+                    <CardText>{comment.comment}</CardText>
+                    <CardText>-- {comment.author} , {date}</CardText>
                     <p></p>
                 </li>
             );
