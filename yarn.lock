@@ -2799,6 +2799,19 @@
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
 
+"bootstrap-social@^5.1.1":
+  "integrity" "sha512-26/oT2rVCyyj7QmbrAwR/L3lHZNDWUdlpjh6a+tnBtB75UnEBEx5btwi7aX505w8pTXvkil8vt0faRGSa5NOdQ=="
+  "resolved" "https://registry.npmjs.org/bootstrap-social/-/bootstrap-social-5.1.1.tgz"
+  "version" "5.1.1"
+  dependencies:
+    "bootstrap" "~3"
+    "font-awesome" "~4.7"
+
+"bootstrap@~3":
+  "integrity" "sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA=="
+  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-3.4.1.tgz"
+  "version" "3.4.1"
+
 "bootstrap@4.0.0":
   "integrity" "sha512-gulJE5dGFo6Q61V/whS6VM4WIyrlydXfCgkE+Gxe5hjrJ8rXLLZlALq7zq2RPhOc45PSwQpJkrTnc2KgD6cvmA=="
   "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-4.0.0.tgz"
@@ -4445,6 +4458,11 @@
   "integrity" "sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.0.tgz"
   "version" "1.15.0"
+
+"font-awesome@^4.7.0", "font-awesome@~4.7":
+  "integrity" "sha512-U6kGnykA/6bFmg1M/oT9EkFeIYv7JlX3bozwQJWiiLz6L0w3F5vBVPxHlwyX/vtNq1ckcpRKOB9f2Qal/VtFpg=="
+  "resolved" "https://registry.npmjs.org/font-awesome/-/font-awesome-4.7.0.tgz"
+  "version" "4.7.0"
 
 "fork-ts-checker-webpack-plugin@^6.5.0":
   "integrity" "sha512-m5cUmF30xkZ7h4tWUgTAcEaKmUW7tfyUyTqNNOz7OxWJ0v1VWKTcOvH8FWHUwSjlW/356Ijc9vi3XfcPstpQKA=="
