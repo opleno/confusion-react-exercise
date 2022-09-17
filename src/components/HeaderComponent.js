@@ -30,7 +30,6 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* TODO alex check if React.Fragment must be replaced by div as in the instructions */}
         <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
