@@ -7,6 +7,7 @@ import Header from "./HeaderComponent.js";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
+import AboutComponent from "./AboutComponent";
 
 import { DISHES } from "../shared/dishes";
 import { COMMENTS } from "../shared/comments";
@@ -39,7 +40,7 @@ class Main extends Component {
       );
     };
 
-    const DishWithId = ({match}) => {
+    const DishWithId = ({ match }) => {
       return (
         <DishDetail
           dish={
@@ -59,6 +60,10 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
+          <Route
+            path="/aboutus"
+            component={() => <AboutComponent leaders={this.state.leaders} />}
+          />
           <Route
             exact
             path="/menu"
