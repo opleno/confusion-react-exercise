@@ -121,7 +121,7 @@ class Contact extends Component {
                     messages={{
                       required: "Required",
                       minLength: "Must be grater than 2 characters",
-                      maxLength: "Must be less than 16 characters",
+                      maxLength: "Must be 15 characters or less",
                     }}
                   />
                 </Col>
