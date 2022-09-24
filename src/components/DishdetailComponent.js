@@ -32,7 +32,7 @@ function RenderDish({ dish }) {
   else return <div></div>;
 }
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, dishId }) {
   if (comments != null) {
     const commentList = comments.map((comment) => {
       let date = new Intl.DateTimeFormat("en-US", {
@@ -58,7 +58,7 @@ function RenderComments({ comments }) {
           {commentList}
         </div>
         <div>
-          <CommentForm />
+          <CommentForm dishId={dishId} addComment={addComment} />
         </div>
       </div>
     );
@@ -89,9 +89,12 @@ class CommentForm extends Component {
   }
   handleSubmitComment(values) {
     this.toggleModal();
-    const message = "Current state is: " + JSON.stringify(values);
-    console.log(message);
-    alert(message);
+    this.props.addComment(
+      this.props.dishId,
+      values.rating,
+      values.author,
+      values.comment
+    );
   }
 
   render() {
@@ -205,7 +208,11 @@ const DishDetail = (props) => {
             <RenderDish dish={props.dish} />
           </div>
           <div className="col-12 col-md-5 m-1">
-            <RenderComments comments={props.comments} />
+            <RenderComments
+              comments={props.comments}
+              addComment={props.addComment}
+              dishId={props.dish.id}
+            />
           </div>
         </div>
       </div>
