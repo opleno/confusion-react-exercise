@@ -81,7 +81,7 @@ const ContactComponent = () => {
               <a
                 role="button"
                 className="btn btn-info"
-                href="https://www.elskypedeParra.com"
+                href="https://www.el-skype-del-parrita.com"
               >
                 <i className="fa fa-skype"></i> Skype
               </a>

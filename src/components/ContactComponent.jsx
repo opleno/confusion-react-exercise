@@ -77,7 +77,7 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-              <a role="button" className="btn btn-info" href="https://www.pornhub.com">
+              <a role="button" className="btn btn-info" href="https://www.el-skype-del-parrita.com">
                 <i className="fa fa-skype"></i> Skype
               </a>
               <a
