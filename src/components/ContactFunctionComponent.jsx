@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,9 +6,13 @@ import {
   Label,
   Row,
   Col,
+  Modal,
+  ModalBody
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import { useState } from "react";
+import "./ContactFunctionComponent.css";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -17,20 +21,17 @@ const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
-class Contact extends Component {
-  constructor(props) {
-    super(props);
+const ContactComponent = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalBody, setModalBody] = useState(null);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const handleSubmit = (values) => {
+    setIsModalOpen(true);
+    setModalBody(<div>Current State is: <br/>{JSON.stringify(values)}</div>);
+  };
 
-  handleSubmit(values) {
-    console.log("Current State is: " + JSON.stringify(values));
-    alert("Current State: " + JSON.stringify(values));
-  }
-
-  render() {
-    return (
+  return (
+    <>
       <div className="container">
         <div className="row">
           <Breadcrumb>
@@ -77,7 +78,11 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-              <a role="button" className="btn btn-info">
+              <a
+                role="button"
+                className="btn btn-info"
+                href="https://www.elskypedeParra.com"
+              >
                 <i className="fa fa-skype"></i> Skype
               </a>
               <a
@@ -95,7 +100,7 @@ class Contact extends Component {
             <h3>Send us your feedback</h3>
           </div>
           <div className="col-12 col-md-9">
-            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+            <LocalForm onSubmit={handleSubmit}>
               <Row className="form-group">
                 <Label htmlFor="firstname" md={2}>
                   First Name
@@ -221,7 +226,7 @@ class Contact extends Component {
                         model=".agree"
                         name="agree"
                         className="form-check-input"
-                      />{" "}
+                      />
                       <strong>May we contact you?</strong>
                     </Label>
                   </div>
@@ -248,6 +253,7 @@ class Contact extends Component {
                     name="message"
                     rows="12"
                     className="form-control"
+                    defaultValue={""}
                   ></Control.textarea>
                 </Col>
               </Row>
@@ -262,8 +268,18 @@ class Contact extends Component {
           </div>
         </div>
       </div>
-    );
-  }
-}
+      <Modal
+        isOpen={isModalOpen}
+        handleEscape={() => setIsModalOpen(false)}
+      ></Modal>
+      <Modal
+        isOpen={isModalOpen}
+        toggle={() => setIsModalOpen((previousValue) => !previousValue)}
+      >
+        <ModalBody className='contact-component-modal-message'>{modalBody}</ModalBody>
+      </Modal>
+    </>
+  );
+};
 
-export default Contact;
+export default ContactComponent;
