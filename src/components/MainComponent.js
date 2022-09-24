@@ -7,8 +7,8 @@ import DishDetail from "./DishdetailComponent";
 import Header from "./HeaderComponent.js";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
-import Contact from "./ContactComponent";
 import AboutComponent from "./AboutComponent";
+import ContactComponent from "./ContactFunctionComponent";
 
 import { addComment } from "../redux/ActionCreators";
 
@@ -73,7 +73,7 @@ class Main extends Component {
             component={() => <Menu dishes={this.props.dishes} />}
           />
           <Route path="/menu/:dishId" component={DishWithId} />
-          <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/contactus" component={ContactComponent} />
           <Redirect to="/home" />
         </Switch>
         <Footer />

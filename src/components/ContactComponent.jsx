@@ -77,7 +77,7 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-              <a role="button" className="btn btn-info">
+              <a role="button" className="btn btn-info" href="https://www.el-skype-del-parrita.com">
                 <i className="fa fa-skype"></i> Skype
               </a>
               <a
@@ -221,7 +221,7 @@ class Contact extends Component {
                         model=".agree"
                         name="agree"
                         className="form-check-input"
-                      />{" "}
+                      />
                       <strong>May we contact you?</strong>
                     </Label>
                   </div>
@@ -248,6 +248,7 @@ class Contact extends Component {
                     name="message"
                     rows="12"
                     className="form-control"
+                    defaultValue={''}
                   ></Control.textarea>
                 </Col>
               </Row>
