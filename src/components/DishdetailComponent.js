@@ -19,17 +19,25 @@ import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
+import { FadeTransform, Fade, Stagger } from "react-animation-components";
 
 function RenderDish({ dish }) {
   if (dish != null)
     return (
-      <Card key={dish.id}>
-        <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
-        <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
-        </CardBody>
-      </Card>
+      <FadeTransform
+        in
+        transformProps={{
+          exitTransform: "scale(0.5) translateY(50%)",
+        }}
+      >
+        <Card key={dish.id}>
+          <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </FadeTransform>
     );
   else return <div></div>;
 }
@@ -43,13 +51,15 @@ function RenderComments({ comments, postComment, dishId }) {
         day: "2-digit",
       }).format(new Date(Date.parse(comment.date)));
       return (
-        <li key={comment.id}>
-          <CardText>{comment.comment}</CardText>
-          <CardText>
-            -- {comment.author} , {date}
-          </CardText>
-          <p></p>
-        </li>
+        <Fade in>
+          <li key={comment.id}>
+            <CardText>{comment.comment}</CardText>
+            <CardText>
+              -- {comment.author} , {date}
+            </CardText>
+            <p></p>
+          </li>
+        </Fade>
       );
     });
 
@@ -57,7 +67,7 @@ function RenderComments({ comments, postComment, dishId }) {
       <div className="container">
         <div className="list-unstyled">
           <h4>Comments</h4>
-          {commentList}
+          <Stagger in>{commentList}</Stagger>
         </div>
         <div>
           <CommentForm dishId={dishId} postComment={postComment} />
