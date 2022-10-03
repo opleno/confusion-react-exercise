@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-import { Stagger } from "react-animation-components";
+import { Stagger, Fade } from "react-animation-components";
 
 function RenderLeader({ leader }) {
   return (
@@ -37,17 +37,16 @@ function RenderLeaderList({ leaderList, isLoading, errMess }) {
   } else {
     const leaders = leaderList.map((leader) => {
       return (
-        <div className="container" key={leader.id}>
-          <RenderLeader leader={leader} />
-        </div>
+        <Fade in>
+          <li key={leader.id}>
+            <RenderLeader leader={leader} />
+          </li>
+        </Fade>
       );
     });
     return (
       <div className="container">
         <div className="list-unstyled">
-          {/* Esto deberia conseguir que los elementos de la lista 
-          apareciesen de 1 en 1 en vez de todos a la vez. Un ejemplo
-          se puede encontrar en DishdetailComponent.js linea:70 */}
           <Stagger in>{leaders}</Stagger>
         </div>
       </div>
